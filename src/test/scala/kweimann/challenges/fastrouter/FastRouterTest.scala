@@ -3,7 +3,9 @@ package kweimann.challenges.fastrouter
 import org.scalatest.{FlatSpec, Matchers}
 
 class FastRouterTest extends FlatSpec with Matchers {
-  it should "" in {
+  import FastRouter.Types.Endpoint
+
+  it should "route based on configuration" in {
     val config = List(
       ("/", "rootEndpoint"),
       ("/user", "userRootEndpoint"),
@@ -47,7 +49,9 @@ class FastRouterTest extends FlatSpec with Matchers {
       "404"
     )
 
-    val router = FastRouter.RouteNode(config)
+    implicit val fallback: Endpoint = "404"
+    val wildcardComponent = "X"
+    val router = FastRouter.RouteNode(config)(wildcardComponent)
 
     input.map(router.route) shouldEqual output
   }
