@@ -33,7 +33,7 @@ The algorithm uses a priority queue (heap) to iterate over the input ordered by 
 ##### Complexity
 
 1. building the heap: `O(n)` (source: https://en.wikipedia.org/wiki/Binary_heap#Building_a_heap)
-2. iterate over heap: `O(n)`
+2. dequeue all elements: `O(n)`
 
 Complexity: `O(n)`
 
