@@ -19,7 +19,7 @@ object OverlappingTimeIntervals {
     // the algorithm will iterate over an ordered list of time intervals
     val heap = mutable.PriorityQueue(timeIntervals: _*)
 
-    // minStart is the smallest start of an untimed interval seen so far
+    // minStart is the smallest start of an interval seen so far
     var (minStart, _) = heap.dequeue()
     var untimedIntervals = List.empty[Interval]
 
