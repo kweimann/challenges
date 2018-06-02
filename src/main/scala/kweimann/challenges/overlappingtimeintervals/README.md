@@ -26,6 +26,23 @@ your program should output
 
 ### Description
 
+The algorithm uses a priority queue (heap) to iterate over the input ordered by interval's end. This way it is possible to discard overlapping intervals simply by comparing the end `e` of interval `n-1` with the start `s` of interval `n`. If `e < s` there is a gap between these two intervals i.e. an untimed interval has been found. Finally, the algorithm has to make sure it always operates on the smallest start of an interval seen so far in case there exist two consecutive intervals `n-1`, `n` such that start of `n` is smaller than the start of `n-1`.
+
 ### Analysis
 
+##### Complexity
+
+1. building the heap: `O(n)` (source: https://en.wikipedia.org/wiki/Binary_heap#Building_a_heap)
+2. iterate over heap: `O(n)`
+
+Complexity: `O(n)`
+
+##### Memory
+
+1. heap: `O(n)`
+
+Memory: `O(n)`
+
 ### Discussion
+
+It is possible to reduce the memory footprint by using a sorting algorithm instead of a heap. However, this in return would increase the complexity.
